@@ -188,9 +188,56 @@ input::placeholder {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 20px;
     }
 
     .swiper-slide:first-child img {
       transform: scale(1.0); /* Aumenta ligeiramente o tamanho da primeira imagem */
     }
+
+    .block{
+        margin-right: 3%;
+        margin-left: 5%;
+    }
+/* Deixa as imagens do swiper com cantos arredondados */
+
+/* Deixa o link "Ver todos os sabores" com cor rosa da variável */
+.sabores-link {
+  color: var(--rosa);
+  font-weight: bold;
+  text-decoration: none;
+}
+.sabores-link:hover {
+  color: #e65100;
+  text-decoration: underline;
+}
+
+/* Espaçamento extra abaixo do swiper */
+.mySwiper {
+  margin-bottom: 32px;
+}
+
+/* Alinha o link "Ver todos os sabores" à direita */
+.sabores-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.sabores-header h2 {
+  margin: 0;
+}
+.sabores-header .sabores-link {
+  margin-left: auto;
+}
+
+
+.filter-btn{
+    width: 100%;
+    height: 35px;
+    background-color: none;
+    border: 2px solid var(--preto);
+    border-radius: 10px;
+}
+
 

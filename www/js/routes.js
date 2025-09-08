@@ -26,33 +26,78 @@ var app = new Framework7({
       animate: false,
 	  on: {
 		pageBeforeIn: function (event, page) {
+      
 		// fazer algo antes da página ser exibida
 		},
 		pageAfterIn: function (event, page) {
+      
+      
 		// fazer algo depois da página ser exibida
 		},
 		pageInit: function (event, page) {
-		// fazer algo quando a página for inicializada
+      $.getScript('js/index.js', function() {
+        // Inicialize o Swiper aqui, dentro do callback
+        setTimeout(function() {
+          var swiperContainer = document.querySelector('.mySwiper');
+          if (swiperContainer) {
+            window.swiperInstance = new Swiper('.mySwiper', {
+              slidesPerView: 1,
+              spaceBetween: 30,
+              loop: true,
+              autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+              },
+              //espaçamento e quantidade de slides conforme o tamanho da tela
+              breakpoints: {
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 40,
+                },
+              },
+            });
+            console.log('Swiper initialized successfully.');
+          } else {
+            console.error('Swiper container not found. Check your HTML structure.');
+          }
+        }, 100);
+      });
 
-    $.getscript ('js/index.js'); 
-      // enfeite pq nao quer rodar nem  que eu chore 
-     console.log('Swiper container found.');
-        var swiper = new Swiper(".mySwiper", {
-          slidesPerView: 5,
-          spaceBetween: 30,
-          freeMode: true,
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-        });
-
-		},
-		pageBeforeRemove: function (event, page) {
-		// fazer algo antes da página ser removida do DOM
-		},
-	  }
-    },
+       var swiper2 = new Swiper(".sabores-swiper", {
+      slidesPerView: 3,
+      spaceBetween: 10,
+      breakpoints: {
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 10,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 10,
+                },
+              },
+      
+    });
+      
+  // ...código executado quando a página /index/ é inicializada...
+},
+      pageBeforeRemove: function (event, page) {
+        // fazer algo antes da página ser removida do DOM
+      },
+    }
+  },
     {
       path: '/link2/',
       url: 'link2.html',
@@ -151,20 +196,4 @@ function onDeviceReady() {
 
 }
 //ediçao e inicialização do swiper
-document.addEventListener('DOMContentLoaded', function () {
-      console.log('DOM fully loaded and parsed.');
-      console.log('Verifying Swiper elements...');
-      if (document.querySelector('.mySwiper')) {
-        console.log('Swiper container found.');
-        var swiper = new Swiper(".mySwiper", {
-          slidesPerView: 1,
-          spaceBetween: 30,
-          delay: 3000,
-          autoplay: true,
-        });
-        console.log('Swiper initialized successfully.');
-      } else {
-        console.error('Swiper container not found. Check your HTML structure.');
-      }
-    });
 
