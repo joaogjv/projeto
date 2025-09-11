@@ -166,7 +166,25 @@ input::placeholder {
 }
 
 .page-content{
-    background-color: var(--branco);
+    height: auto;
+    min-height: unset;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    background: var(--branco);
+    position: relative;
+    z-index: 1;
+}
+
+body, html {
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+#app, .view-main, .page {
+  height: auto;
+  min-height: unset;
+  overflow: visible;
 }
 
     .swiper {
@@ -240,4 +258,81 @@ input::placeholder {
     border-radius: 10px;
 }
 
+.row{
+    flex-direction: row;
+    flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha se necessário */
+    
+}
 
+.item{  
+   color: var(--preto)
+}
+
+.item-card{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 240px;
+    flex: 45%;
+    margin-right: 5px;
+    bottom: 5px;
+}
+
+.item-card img {
+  max-width: 150px; /* aumenta a largura máxima permitida */
+  max-height: 2800px;
+  width: 100%; /* ocupa toda a largura do container */
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.img-container{
+    background-color: var(--gelo);
+    height: 180px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Garante que a imagem não ultrapasse os limites do contêiner */
+}
+
+/* Nome do produto em cima, preço embaixo, estrelas à direita */
+.nome-rating {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+.nome-rating .nome-preco {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.nome-rating .nome {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.nome-rating .rating {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Estrela amarela para Material Design Icons */
+.rating .mdi-star {
+  color: #FFD700;
+}
+
+.color-gray {
+    color: var(--cinza);
+}
+/* Cor personalizada para o preço */
+.nome-preco .price {
+  color: #080808fb !important; /* rosa, troque para qualquer cor desejada */
+  font-size: 17px;
+  
+}
